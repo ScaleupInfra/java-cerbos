@@ -2,9 +2,26 @@
 apiVersion: api.cerbos.dev/v1
 resourcePolicy:
   version: default
-  resource: "your_resource_type" # Replace with your actual resource type
+  resource: blog
   rules:
-    - actions: ["*"] # Applies to all actions
+    - actions: ["read"]
       effect: EFFECT_ALLOW
       roles:
-        - "*" # Applies to all roles
+        - admin
+        - user
+      condition:
+        match:
+          expr: request.resource.attr.owner == request.principal.id
+
+    - actions: ["update", "delete"]
+      effect: EFFECT_ALLOW
+      roles:
+        - admin
+
+    - actions: ["update", "delete"]
+      effect: EFFECT_ALLOW
+      roles:
+        - user
+      condition:
+        match:
+          expr: request.resource.attr.owner == request.principal.id
