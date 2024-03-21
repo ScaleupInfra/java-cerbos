@@ -1,4 +1,5 @@
 package com.example.demoappfinal.controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.demoappfinal.models.Blog;
 import com.example.demoappfinal.data.DataLoader;
@@ -13,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000") // React app's origin
+
 @RequestMapping("/api/blog")
 public class BlogController {
 
@@ -63,6 +66,8 @@ public class BlogController {
             String role = DataLoader.users.get(userId).getRole();
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
+System.out.println(blogId);
+System.out.println(userId);
 
             Principal principal = Principal.newInstance(userId, role)
                 .withAttribute("id", AttributeValue.stringValue(own));

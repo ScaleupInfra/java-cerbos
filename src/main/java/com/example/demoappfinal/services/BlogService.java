@@ -13,6 +13,9 @@ public class BlogService {
     // Reference the DataLoader's blogs map
     private final Map<String, Blog> blogs = DataLoader.blogs;
 
+    public Map<String, Blog> getAllBlogs() {
+        return blogs;
+    }
      public Blog getBlog(String id) {
         return blogs.get(id);
     }
