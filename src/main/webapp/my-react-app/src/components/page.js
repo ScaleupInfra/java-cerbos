@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from "react";
+import cerbosLogo from './cerbos.png';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -157,6 +157,10 @@ if(response.ok){
   };
 
   return (
+    
+    <div style={{ backgroundColor: 'yellow' }} className="max-w-4xl mx-auto px-4 py-8">
+<img src={cerbosLogo} alt="Cerbos Logo" />
+
     <div className=" max-w-4xl mx-auto px-4 py-8">
       {blogs &&
         Object.keys(blogs).map((key) => (
@@ -292,6 +296,7 @@ if(response.ok){
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };
