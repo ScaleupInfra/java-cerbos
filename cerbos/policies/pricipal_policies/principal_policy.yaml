@@ -1,0 +1,10 @@
+apiVersion: api.cerbos.dev/v1
+principalPolicy:
+  version: default
+  principals:
+    - name: admin
+      roles:
+        - admin
+    - name: user
+      roles:
+        - user

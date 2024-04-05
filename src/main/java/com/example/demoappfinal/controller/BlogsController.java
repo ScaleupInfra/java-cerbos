@@ -1,4 +1,4 @@
-package com.example.demoappfinal.controllers;
+package com.example.demoappfinal.controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.demoappfinal.models.Blog;
