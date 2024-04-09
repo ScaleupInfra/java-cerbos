@@ -7,7 +7,7 @@ import com.example.demoappfinal.services.BlogService;
 import dev.cerbos.sdk.CerbosBlockingClient;
 import dev.cerbos.sdk.CheckResult;
 import dev.cerbos.sdk.builders.AttributeValue;
-import dev.cerbos.sdk.builders.Principal;
+import dev.cerbos.sdk.builders.Principal; 
 import dev.cerbos.sdk.builders.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +36,7 @@ public class BlogController {
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(userId, role)
-                .withAttribute("id", AttributeValue.stringValue(own));
+            Principal principal = Principal.newInstance(own, role);
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
@@ -66,11 +65,8 @@ public class BlogController {
             String role = DataLoader.users.get(userId).getRole();
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
-System.out.println(blogId);
-System.out.println(userId);
 
-            Principal principal = Principal.newInstance(userId, role)
-                .withAttribute("id", AttributeValue.stringValue(own));
+            Principal principal = Principal.newInstance(own, role);
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
@@ -101,12 +97,10 @@ System.out.println(userId);
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(userId, role)
-                .withAttribute("id", AttributeValue.stringValue(own));
+            Principal principal = Principal.newInstance(own, role);
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
-
 
             CheckResult result = cerbosClient.check(
                 principal,

@@ -1,17 +1,19 @@
 apiVersion: api.cerbos.dev/v1
 resourcePolicy:
   version: default
+
+  importDerivedRoles:
+    - BlogPostRoles
+
   resource: blog
   rules:
-    - actions: ["read"]
+  
+    - actions: ["*"]
       effect: EFFECT_ALLOW
       roles:
-        - admin
-        - user
+      - admin
 
-    - actions: ["update", "delete"]
+    - actions: ["update", "delete", "read"]
       effect: EFFECT_ALLOW
-      roles:
-        - admin
       derivedRoles:
         - owner
