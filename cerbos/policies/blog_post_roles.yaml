@@ -8,4 +8,4 @@ derivedRoles:
       parentRoles: ["user"]
       condition:
         match:
-          expr: resource.attr.owner == principal.id
+          expr: request.resource.attr.owner == request.principal.attr.id

@@ -36,11 +36,11 @@ public class BlogController {
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(own, role);
+            Principal principal = Principal.newInstance(own, role)
+                .withAttribute("id", AttributeValue.stringValue(own));
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
-
 
             CheckResult result = cerbosClient.check(
                 principal,
@@ -54,6 +54,7 @@ public class BlogController {
             return ResponseEntity.ok(blog);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Error processing request: " + e.getMessage());
             return ResponseEntity.internalServerError().body("Error processing request: " + e.getMessage());
         }
     }
@@ -66,11 +67,11 @@ public class BlogController {
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(own, role);
+            Principal principal = Principal.newInstance(own, role)
+                .withAttribute("id", AttributeValue.stringValue(own));
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
-
 
             CheckResult result = cerbosClient.check(
                 principal,
@@ -85,6 +86,7 @@ public class BlogController {
             return ResponseEntity.ok(updatedBlog);
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Error processing request: " + e.getMessage());
             return ResponseEntity.internalServerError().body("Error processing request: " + e.getMessage());
         }
     }
@@ -97,7 +99,8 @@ public class BlogController {
             String own = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(own, role);
+            Principal principal = Principal.newInstance(own, role)
+                .withAttribute("id", AttributeValue.stringValue(own));
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));

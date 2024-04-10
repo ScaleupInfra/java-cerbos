@@ -5,7 +5,7 @@ resourcePolicy:
   importDerivedRoles:
     - BlogPostRoles
 
-  resource: blog
+  resource: 'blog'
   rules:
   
     - actions: ["*"]

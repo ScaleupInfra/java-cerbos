@@ -19,7 +19,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation "dev.cerbos:cerbos-sdk-java:0.+"
+	implementation "dev.cerbos:cerbos-sdk-java:0.11.0"
 	implementation "io.grpc:grpc-core:1.+"
 }
 

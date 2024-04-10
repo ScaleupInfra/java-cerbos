@@ -15,7 +15,7 @@ public class CerbosConfig {
   @Bean
   public CerbosBlockingClient cerbosBlockingClient() {
     try {
-      return new CerbosClientBuilder(cerbosHost)
+      return new CerbosClientBuilder("localhost:3593")
           .withPlaintext()
           .buildBlockingClient();
     } catch (CerbosClientBuilder.InvalidClientConfigurationException e) {
