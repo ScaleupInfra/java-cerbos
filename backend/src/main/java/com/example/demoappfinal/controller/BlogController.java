@@ -33,11 +33,11 @@ public class BlogController {
         try {
             Blog blog = blogService.getBlog(blogId);
             String role = DataLoader.users.get(userId).getRole();
-            String own = DataLoader.users.get(userId).getName();
+            String userName = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(own, role)
-                .withAttribute("id", AttributeValue.stringValue(own));
+            Principal principal = Principal.newInstance(userName, role)
+                .withAttribute("id", AttributeValue.stringValue(userName));
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
@@ -64,11 +64,11 @@ public class BlogController {
         try {
             Blog blog = blogService.getBlog(blogId);
             String role = DataLoader.users.get(userId).getRole();
-            String own = DataLoader.users.get(userId).getName();
+            String userName = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(own, role)
-                .withAttribute("id", AttributeValue.stringValue(own));
+            Principal principal = Principal.newInstance(userName, role)
+                .withAttribute("id", AttributeValue.stringValue(userName));
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
@@ -96,11 +96,11 @@ public class BlogController {
         try {
             Blog blog = blogService.getBlog(blogId);
             String role = DataLoader.users.get(userId).getRole();
-            String own = DataLoader.users.get(userId).getName();
+            String userName = DataLoader.users.get(userId).getName();
             String blogOwner = blog.getOwner();
 
-            Principal principal = Principal.newInstance(own, role)
-                .withAttribute("id", AttributeValue.stringValue(own));
+            Principal principal = Principal.newInstance(userName, role)
+                .withAttribute("id", AttributeValue.stringValue(userName));
 
             Resource resource = Resource.newInstance("blog", blogId)
                 .withAttribute("owner", AttributeValue.stringValue(blogOwner));
